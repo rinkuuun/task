@@ -190,7 +190,7 @@ def check_body(path, rep):
     # 日付
     for m in re.finditer(r"(公開日|投稿日|更新日|最終更新)", plain):
         rep.error(f"日付表示らしき語「{m.group(1)}」がある")
-    for m in re.finditer(r"\d{4}[年/.-]\d{1,2}[月/.-]\d{1,2}日?", plain):
+    for m in re.finditer(r"(?<!\d)\d{4}[年/.-]\d{1,2}[月/.-]\d{1,2}日?(?!\d)", plain):
         rep.warn(f"日付「{m.group(0)}」がある（投稿日なら削除）")
 
     # 禁止用語
