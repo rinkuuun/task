@@ -118,7 +118,7 @@
 - 振り返りリスト（4項目程度）
 - くじらのゼロ賃貸の紹介文：仲介手数料0円（※一部対象外の物件があります）、SUUMO・HOME'Sなどの他社サイトやSNSで見つけた物件も紹介可能（一部対象外あり）、相見積もり歓迎、初期費用の分割相談が可能、希望の場所までの無料送迎、LINEで24時間受付、24時間内見対応、契約までオンラインで完結可能
 - 監修者情報ブロック
-- LINE・電話・お問い合わせ・来店予約CTAボタン
+- まとめにはCTAボタンを置かない（直後の末尾ウィジェットと重複するため。監修者情報ブロックのあとはそのまま末尾ウィジェットへ続ける）
 
 ### 6. 末尾ウィジェット
 - 記事末尾（外枠 `</div>` の直前）に配置。LINE・来店予約・電話・お問い合わせの4アクション
@@ -196,10 +196,10 @@
 
 | 導線 | グラデーション（style属性の background に書く値） | 使用箇所 |
 |---|---|---|
-| LINE | `linear-gradient(135deg,#06C755,#05b34c)` | 冒頭・途中・まとめ・末尾 |
-| 電話 | `linear-gradient(135deg,#0B4DA2,#09418A)` | 冒頭・途中・まとめ・末尾 |
-| お問い合わせ | `linear-gradient(135deg,#6c5ce7,#5849c2)` | 途中（お部屋探し系の直後）・まとめ・末尾 |
-| 来店予約 | `linear-gradient(135deg,#2a9d8f,#22857a)` | まとめ・末尾のみ |
+| LINE | `linear-gradient(135deg,#06C755,#05b34c)` | 冒頭・途中・末尾 |
+| 電話 | `linear-gradient(135deg,#0B4DA2,#09418A)` | 冒頭・途中・末尾 |
+| お問い合わせ | `linear-gradient(135deg,#6c5ce7,#5849c2)` | 途中（お部屋探し系の直後）・末尾 |
+| 来店予約 | `linear-gradient(135deg,#2a9d8f,#22857a)` | 末尾のみ |
 
 - 見出し・FAQ・枠などの装飾はブランドカラー（#0B4DA2）で統一し、導線カラーと混同しない
 - ボタンの文字色は `color:#fff !important;text-decoration:none !important;` を必ず書く（CMSのリンク色に上書きされないため）
@@ -214,7 +214,7 @@
 ボタン1つの共通style（background の値だけ導線ごとに差し替える）：
 `display:block;flex:1 1 240px;max-width:100%;box-sizing:border-box;padding:16px 12px;border-radius:50px;text-align:center;font-size:16px;font-weight:bold;line-height:1.4;color:#fff !important;text-decoration:none !important;box-shadow:0 3px 8px rgba(0,0,0,0.15);background:（導線カラー）;`
 
-### LINE・電話（冒頭とまとめ）
+### LINE・電話（冒頭）
 ```html
 <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:28px 0;">
 <a href="https://lin.ee/x9VvbWL" target="_blank" rel="nofollow" style="display:block;flex:1 1 240px;max-width:100%;box-sizing:border-box;padding:16px 12px;border-radius:50px;text-align:center;font-size:16px;font-weight:bold;line-height:1.4;color:#fff !important;text-decoration:none !important;box-shadow:0 3px 8px rgba(0,0,0,0.15);background:linear-gradient(135deg,#06C755,#05b34c);">LINEで相談する</a>
@@ -230,7 +230,7 @@
 </div>
 ```
 
-### お問い合わせ・来店予約（まとめ・末尾ウィジェット）
+### お問い合わせ・来店予約（末尾ウィジェット）
 ```html
 <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:28px 0;">
 <a href="https://www.kujira-zerochintai.com/contact/" style="display:block;flex:1 1 240px;max-width:100%;box-sizing:border-box;padding:16px 12px;border-radius:50px;text-align:center;font-size:16px;font-weight:bold;line-height:1.4;color:#fff !important;text-decoration:none !important;box-shadow:0 3px 8px rgba(0,0,0,0.15);background:linear-gradient(135deg,#6c5ce7,#5849c2);">お問い合わせはこちら</a>
@@ -270,4 +270,5 @@
 - 最終行が外枠の `</div>` で終わっているか（開始タグと終了タグの数が合っているか）
 - 公開日・更新日などの日付表示が入っていないか
 - 「仲介手数料0円（無料）」の初出とまとめに「一部対象外の物件があります」が添えられているか
+- まとめ（監修者情報ブロックのあと）にCTAボタンが入っていないか（ボタンは末尾ウィジェットの4つだけにする）
 - 「最安」「名古屋で一番」など、チェック項目5の用語が残っていないか
